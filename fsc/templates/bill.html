@@ -1,0 +1,55 @@
+<div class="container">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/services.css') }}" media="all">
+  <header class="header">
+    <h1 id="title" class="text-center">
+        			
+					<p>Your bill</p>
+        			</h1>
+        			
+
+  </header>
+  <form id="survey-form" method = "POST" action="/">
+
+
+    <div class="form-group">
+      <p>
+        BILL generated
+      </p>
+      <table style="width:100%">
+  <tr>
+    <th>PARTS</th>
+    <th>PRICE</th>
+  </tr>
+      {%if prefer%}
+	{%for choice in prefer%}
+		{%if parts%}
+			{%for part in parts%}
+				{%if choice==part[0]%}
+				
+
+  <tr>
+    <th>{{part[0]}}</th>
+    <th>{{part[1]}}</th>
+
+  </tr>
+ 
+
+{%endif%}
+      {%endfor%}
+      {%endif%}
+ {%endfor%}
+      {%endif%}
+
+  <tr>
+    <th>TOTAL</th>
+    <th>{{total}}</th>
+  </tr>
+
+      </table>
+<div class="form-group">
+      <button type="submit" id="confirm" name="Submit" value="Return" class="submit-button">
+        Return
+      </button>
+  </form>
+</div>
+

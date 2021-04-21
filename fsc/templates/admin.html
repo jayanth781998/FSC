@@ -1,0 +1,56 @@
+<div class="container">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/services.css') }}" media="all">
+  <header class="header">
+    <h1 id="title" class="text-center">
+        			
+					<p>USER MANAGEMENT</p>
+        			</h1>
+        			
+
+  </header>
+  <form id="survey-form" method = "post" action="/">
+
+
+    <div class="form-group">
+      <p>
+        USER TABLE
+      </p>
+      <table style="width:100%">
+  <tr>
+    <th>USERS</th>
+    <th>MANAGE</th>
+  </tr>
+		{%if users%}
+			{%for user in users%}
+				
+
+  <tr>
+  
+    <th>{{user[0]}}</th>
+    <th> <input
+          name="selected"
+          value={{user[0]}}
+          type="radio"
+          class="input-checkbox"
+        />
+
+  </tr>
+ 
+
+
+      {%endfor%}
+      {%endif%}
+
+
+      </table>
+<div class="form-group">
+      <button type="submit" id="confirm" name="Submit" value="Delete" class="submit-button">
+        Delete
+      </button>
+      <div class="form-group">
+      <button type="submit" id="confirm" name="Submit" value="Return" class="submit-button">
+        Return
+      </button>
+  </form>
+</div>
+
