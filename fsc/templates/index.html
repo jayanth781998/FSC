@@ -1,0 +1,40 @@
+<html lang="en">
+
+    <head>
+<title>Login</title>
+                <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" media="all">
+    <body>
+      <div class="loginbox">
+        <img src="{{ url_for('static', filename='css/avatar.png') }}" class ="avatar">
+          <h1>Login Here</h1>
+          <form action ="/" method="GET">
+          <p>Username</p>
+          <input type="text" name="username" id="username" placeholder="Enter Username" required/>
+              <p>Password</p>
+           <input type="password" name="password" id="password" placeholder="Enter Password" required/>
+               <input type="submit" name="Submit" value="Log In" class="btn-login"><br>
+               <input type="submit" class="btn-login" name="Submit" value="Sign Up"/>
+               <input type="submit" class="btn-login" name="Submit" value="Admin"/>
+             </form>  
+                 	{%if users%}
+    		{%if login==1%}
+        			{%for user in users%}
+					<p>{{user[0]}} successfully logged in</p>
+        			{%endfor%}
+    		{%else%}
+    			{%if exists==0%}
+        				{%for user in users%}
+						<p>{{user[0]}} successfully Signed up</p>
+        				{%endfor%}
+    			{%else%}
+						<p>Username already taken</p>
+    			{%endif%}
+    		{%endif%}
+    	{%else%}
+				<p>Enter Username and password carefully</p>
+	{%endif%}                                 
+        </div>
+
+    </body>
+</head>
+</html>
